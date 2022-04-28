@@ -12,4 +12,5 @@ resource "aws_security_group" "sg-https" {
 }
 resource "aws_rds_cluster" "rds-cluster" {
   backup_retention_period = 0
+  deletion_protection     = true
 }
