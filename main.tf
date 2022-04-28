@@ -8,6 +8,8 @@ resource "aws_db_instance" "posgress" {
   publicly_accessible  = false
   enabled_cloudwatch_logs_exports  = ["audit", "error", "general", "slowquery"]
   monitoring_interval = 60
+  performance_insights_enabled = true
+  performance_insights_kms_key_id = "arn:aws:kms:us-west-2:1111111111:key/xyz"
 }
 #resource "aws_security_group" "sg-https" {
 #  ingress {
@@ -23,6 +25,8 @@ resource "aws_rds_cluster" "rds-cluster" {
   deletion_protection     = true
   engine_mode = "serverless"
   iam_database_authentication_enabled  = true
+  kms_key_id        = "arn:aws:kms:us-west-2:111122223333:key/example"
+  storage_encrypted = true
 }
 
 resource "aws_backup_selection" "example" {
