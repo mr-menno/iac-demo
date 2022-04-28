@@ -7,5 +7,5 @@ pr_status_thresholds:
 pr_status_force_pass_enabled: false
 pr_status_enabled: true
 pr_comments_enabled: true
-pr_comments_on_passed_check_enabled: false
+pr_comments_on_passed_check_enabled: true
 scan_git_submodules_enabled: true
