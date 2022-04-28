@@ -10,7 +10,7 @@ resource "aws_db_instance" "posgress" {
   monitoring_interval = 60
   performance_insights_enabled = true
   performance_insights_kms_key_id = "arn:aws:kms:us-west-2:1111111111:key/xyz"
-  parameter_group_name = aws_db_parameter_group.posgress.name
+  #parameter_group_name = aws_db_parameter_group.posgress.name
 }
 #resource "aws_security_group" "sg-https" {
 #  ingress {
