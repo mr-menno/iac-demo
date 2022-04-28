@@ -22,7 +22,8 @@ resource "aws_db_instance" "posgress" {
 #  }
 #}
 resource "aws_rds_cluster" "rds-cluster" {
-  backup_retention_period = 5
+  #set to 0 for demo
+  backup_retention_period = 0
   deletion_protection     = true
   engine_mode = "serverless"
   iam_database_authentication_enabled  = true
