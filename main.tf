@@ -10,6 +10,7 @@ resource "aws_db_instance" "posgress" {
   monitoring_interval = 60
   performance_insights_enabled = true
   performance_insights_kms_key_id = "arn:aws:kms:us-west-2:1111111111:key/xyz"
+  parameter_group_name = aws_db_parameter_group.posgress.name
 }
 #resource "aws_security_group" "sg-https" {
 #  ingress {
@@ -36,4 +37,18 @@ resource "aws_backup_selection" "example" {
     resources = [
       aws_rds_cluster.rds-cluster.arn,
     ]
+}
+
+resource "aws_db_parameter_group" "posgress" {
+  name        = "rds-cluster-pg"
+  family      = "postgres"
+
+  parameter {
+    name  = "log_statement"
+    value = "ddl"
+  }
+  parameter {
+    name  = "log_min_duration_statement"
+    value = "1000"
+  }
 }
